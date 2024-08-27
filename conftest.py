@@ -15,7 +15,6 @@ def browser(request):
     browser_name = request.config.getoption("browser_name")
     lang = request.config.getoption("language")
 
-    browser = None
     if browser_name == "chrome":
         options = Options()
         options.add_experimental_option('prefs', {'intl.accept_languages': lang})
@@ -31,5 +30,3 @@ def browser(request):
     yield browser
     print("\nquit browser..")
     browser.quit()
-
-
